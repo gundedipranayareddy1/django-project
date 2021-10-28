@@ -1,0 +1,11 @@
+{% csrf_token %}
+
+{% for user in users %}
+{% if user.is_superuser == 1 %}
+<h1> super user :  {{user.username}} !</h1>
+
+{% else %}
+<h1>user :   {{user.username}} !</h1>
+
+{% endif %}
+{% endfor %}

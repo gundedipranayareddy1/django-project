@@ -1,0 +1,38 @@
+{% load static %}
+<html>
+<head>
+
+    <title>
+        vacations
+    </title>
+    <link rel="stylesheet" href="{% static "css/vacation.css" %}"
+</head>
+<body>
+
+<h1>vacations list:</h1>
+<!-- {% load static %} -->
+
+<p style="text-align:right;"><a href="/login/logout">Logout</a></p>
+
+<!-- {% load static %}
+{% static "images" as baseUrl %} -->
+<form method='POST'>
+    {% csrf_token %}
+    {% for vacation in vacations %}
+    <li>Place: {{vacation.place}}</li>
+    <li>Image</li>
+    <!-- <img src={{vacation.image.url}}> -->
+    {% if vacation.place == 'Goa' %}
+    <img src="{% static "images/Goa.jpg"%}"/>
+    {% else %}
+    <img src="{% static "images/Bangalore.jpg"%}"/>
+    {% endif %}
+    <li>Price:{{vacation.price}}</li>
+    <li>Travel cost included:{{vacation.travel}}</li>
+    <li>Food included:{{vacation.food}}</li>
+    <li>Accomodation: {{vacation.accomodation}}</li>
+    ---------------------------------------------
+    {% endfor %}
+
+</body>
+</html>

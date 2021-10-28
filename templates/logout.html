@@ -1,0 +1,6 @@
+{% csrf_token %}
+{% if user.is_authenticated %}
+<h2>Hello, {{user.first_name}}</h2><br>
+<a href="/vacations">Explore Vacations</a><br>
+<a href="logout">Logout</a>
+{% endif %}
